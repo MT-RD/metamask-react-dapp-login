@@ -1,46 +1,57 @@
-# Getting Started with Create React App
+# Web3 DApp in React & Login with MetaMask
+
+A simple React/Web3 DApp that replicates a small portion of the Uniswap v2 interface - 
+specifically, we build the "account login" button that allows users to connect to a DApp using their MetaMask extension.
+
+## Objectives
+
+* Working React app that will be able to connect to your MetaMask account
+* Read your address & ETH balance
+* If you connect with multiple accounts the interface will change to reflect the active account
+
+## Package versions
+
+* `react: ^17.0.2`
+* `typescript: ^4.3.5`
+* `@usedapp/core: ^0.4.4`
+* `@chakra-ui/react: ^1.6.6`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## Additional libraries 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* `@chakra-ui/react`
+* `@emotion/react`
+* `@emotion/styled`
+* `@usedapp/core`
+* `framer-motion`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Set up useDApp
 
-### `npm test`
+useDApp is an incredibly useful framework for "rapid DApp development", and includes some helpful hooks and seamless integration into a modern react app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To dive into everything you can do with the framework, check out their website at https://usedapp.io/ 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Add Ethereum balance
+Grab some Ethereum from the Ropsten faucet from [here](https://faucet.ropsten.be)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Useful links
 
-### `npm run eject`
+<table>
+<tr>
+    <td>@metamask/jazzicon</td>
+    <td>https://classic.yarnpkg.com/en/package/@metamask/jazzicon</td>
+</tr>
+<tr>
+    <td>framer-motion</td>
+    <td>https://yarnpkg.com/package/framer-motion</td>
+</tr>
+</table>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
