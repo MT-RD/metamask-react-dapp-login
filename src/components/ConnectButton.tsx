@@ -23,6 +23,7 @@ function ConnectButton() {
           {/* etherBalance will be an object, so we stringify it */}
           {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
         </Text>
+      </Box>
         <Button
           bg="gray.800"
           border="1px solid transparent"
@@ -49,7 +50,6 @@ function ConnectButton() {
           </Text>
         </Button>
       </Box>
-    </Box>
   ): (
     <Button onClick={handleConnectWallet}>Connect to a wallet</Button>
   );
