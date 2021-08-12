@@ -1,6 +1,6 @@
 import {useEthers} from "@usedapp/core";
 import {
-  Box,
+  Box, Button,
   Flex,
   Modal,
   ModalBody,
@@ -55,6 +55,24 @@ export default function AccountModal({ isOpen, onClose }) {
               <Text color="gray.400" fontSize="sm">
                 Connected with MetaMask
               </Text>
+              <Button
+                variant="outline"
+                size="sm"
+                borderColor="blue.800"
+                borderRadius="3xl"
+                color="blue.500"
+                fontSize="13px"
+                fontWeight="normal"
+                px={2}
+                height="26px"
+                _hover={{
+                  background: "none",
+                  borderColor: "blue.300",
+                  textDecoration: "underline",
+                }}
+              >
+                Change
+              </Button>
             </Flex>
 
           </Box>
