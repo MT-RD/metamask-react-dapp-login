@@ -20,8 +20,14 @@ type Props = {
 }
 
 // @ts-ignore
-export default function AccountModal({ isOpen, onClose }) {
+export default function AccountModal({ isOpen, onClose }: Props) {
   const { account, deactivate } = useEthers();
+
+  // Add a function to handle deactivating account
+  function handleDeactivateAccount() {
+    deactivate();
+    onClose();
+  }
 
   return(
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="md">
@@ -72,6 +78,8 @@ export default function AccountModal({ isOpen, onClose }) {
                   borderColor: "blue.300",
                   textDecoration: "underline",
                 }}
+                // Add our deactivate account handler onClick
+                onClick={handleDeactivateAccount}
               >
                 Change
               </Button>
