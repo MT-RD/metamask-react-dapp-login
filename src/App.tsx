@@ -16,7 +16,7 @@ function App() {
     <ChakraProvider>
       <Layout>
         {/* Our connect button will only handle opening */}
-        <AccountTag data={web3Context}/>
+        <AccountTag title="Web3 Data" web3Context={web3Context} />
       </Layout>
     </ChakraProvider>
   );
