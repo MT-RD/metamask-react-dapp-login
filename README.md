@@ -1,13 +1,17 @@
-# Web3 DApp in React & Login with MetaMask
+# Send React Web3 Transactions via MetaMask with useDApp
 
-A simple React/Web3 DApp that replicates a small portion of the Uniswap v2 interface - 
-specifically, we build the "account login" button that allows users to connect to a DApp using their MetaMask extension.
+Send real transactions via our React DApp, both reading from & writing to an Ethereum smart-contract written in `Solidify`
+
+By this time, you'll already know how to connect an Ethereum account to a DApp. 
+In this branch, we will be interacting with and change the state of the Ethereum network!
+
 
 ## Objectives
 
-* Working React app that will be able to connect to your MetaMask account
-* Read your address & ETH balance
-* If you connect with multiple accounts the interface will change to reflect the active account
+* How to write a basic smart contract in Solidity
+* How to deploy that contract to a test network
+* How to import that contract into a frontend
+* How to read from & write to that contract
 
 ## Package versions
 
@@ -16,28 +20,43 @@ specifically, we build the "account login" button that allows users to connect t
 * `@usedapp/core: ^0.4.4`
 * `@chakra-ui/react: ^1.6.6`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In addition, we'll make use of `Solidity > 0.5` and the [Remix Solidity online editor](https://remix.ethereum.org/)
 
+## 1. Create and Deploy a Smart Contract via Remix
 
+- Create a simple smart contract using the online editor Remix: https://remix.ethereum.org/.
+- Make sure to be connected to the Rinkeby network (via MetaMask), then navigate to the File Explorer tab, click on `contracts` and create a new file called `SimpleContract.sol`:
+ 
+  
+  ![GitHub Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9bzlrqm02eoblnqg2rxj.png)
 
-## Additional libraries 
+- `Solidty` - it's essentially an object-oriented language with JavaScript-like syntax, where `class` is `contract`.
 
-* `@chakra-ui/react`
-* `@emotion/react`
-* `@emotion/styled`
-* `@usedapp/core`
-* `framer-motion`
+Inside`SimpleContract.sol`, add the following code:
 
-## Set up useDApp
+```solidity
+pragma solidity > 0.5; // pragma is always required
 
-useDApp is an incredibly useful framework for "rapid DApp development", and includes some helpful hooks and seamless integration into a modern react app.
+contract SimpleContract {
+    uint256 public count;
+    
+    function incrementCount() public {}
+    
+    function setCount(uint256 _count) public {}
+}
+```
 
-To dive into everything you can do with the framework, check out their website at https://usedapp.io/ 
+In the above code, we are initializing a variable called `count` as a `uint256` integer type. When we declare this variable, it is automatically set to 0.
 
+## Step 2: Import our Contract & Read a Value
 
-## Add Ethereum balance
-Grab some Ethereum from the Ropsten faucet from [here](https://faucet.ropsten.be)
+We're using the `useDapp` framework in our app to provide a clean abstraction
+for interacting with the Ethereum network, and they provide the 
+`useContractCall` and `useContractCalls` hooks to make custom calls to a 
+smart contract.
 
+In order to interact with a smart contract from our Dapp, we need two things: 
+the `contract address` and an `ABI (application binary interface)`.
 
 ## Useful links
 
