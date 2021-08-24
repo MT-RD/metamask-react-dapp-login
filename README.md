@@ -1,13 +1,23 @@
 # Web3 DApp in React & Login with MetaMask
 
-A simple React/Web3 DApp that replicates a small portion of the Uniswap v2 interface - 
-specifically, we build the "account login" button that allows users to connect to a DApp using their MetaMask extension.
+A simple React/Web3 DApp, using `Network.js` which can connect and 
+request data from the Ethereum `mainnet` using `Infura` & `Metamask`
 
 ## Objectives
 
-* Working React app that will be able to connect to your MetaMask account
-* Read your address & ETH balance
-* If you connect with multiple accounts the interface will change to reflect the active account
+* [Infura](https://infura.io/) as a JSON-RPC connection to the mainnet or testnets;
+* [MetaMask](https://metamask.io/) to serve as the user’s wallet and web3 provider;
+* [OpenZeppelin](https://openzeppelin.com/) for contracts and Network JS, a javascript library for web3 (i.e. blockchain development). 
+This code tutorial is inspired by their dapp creation guide.
+
+
+Using these products together has the benefit of replacing database setup and 
+user credential management, resulting in a quick-to-start blockchain 
+infrastructure. 
+
+In this tutorial, we’ll create a React dapp using Network JS that can 
+interact with MetaMask, which uses Infura as its connection to the Ethereum 
+mainnet.
 
 ## Package versions
 

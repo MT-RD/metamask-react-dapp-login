@@ -1,21 +1,29 @@
-import {ChakraProvider, useDisclosure} from "@chakra-ui/react";
+import React from 'react';
+import { useWeb3 } from '@openzeppelin/network/react';
+
 import Layout from "./components/Layout";
-import ConnectButton from "./components/ConnectButton";
-import AccountModal from "./components/AccountModal";
+import './App.css';
+const infuraProjectId = '17ed6dde97064fa0a4cb79e2835a7a29';
 
 function App() {
-  // Pull the disclosure methods
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  return (
-    <ChakraProvider>
-      <Layout>
-        {/* Our connect button will only handle opening */}
-        <ConnectButton handleOpenModal={onOpen}/>
 
-        {/* Our Account modal will handle open state & closing */}
-        <AccountModal isOpen={isOpen} onClose={onClose} />
-      </Layout>
-    </ChakraProvider>
+  const web3Context = useWeb3(`wss://rinkeby.infura.io/v3/${infuraProjectId}`);
+  const { networkId, networkName, providerName } = web3Context;
+
+  return (
+    <Layout>
+      <div className="App">
+        <div>
+          <h1>Infura/MetaMask/OpenZeppelin Dapp</h1>
+          <div>
+            Network: {networkId ? `${networkId} – ${networkName}` : 'No connection'}
+          </div>
+          <div>
+            Provider: {providerName}
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
 }
 
