@@ -1,12 +1,22 @@
 import {Box, Heading, Text, Button} from "@chakra-ui/react";
-import {useCallback} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 // @ts-ignore
 function AccountTag(props) {
 
   const {web3Context} = props;
   console.log(props)
-  const {networkId, networkName, accounts, providerName} = web3Context;
+  const {networkId, networkName, accounts, providerName, lib} = web3Context;
+
+  const [balance, setBalance] = useState(0);
+  const getBalance = useCallback(async () => {
+    let balance = accounts && accounts.length > 0 ? lib.utils.fromWei(await lib.eth.getBalance(accounts[0]), 'ether') : 'Unknown';
+    setBalance(balance);
+  }, [accounts, lib.eth, lib.utils]);
+
+  useEffect(() => {
+    getBalance();
+  }, [accounts, getBalance, networkId]);
 
   const requestAuth = async (web3Context: any) => {
     try {
@@ -57,6 +67,10 @@ function AccountTag(props) {
 
         <Text color="white" fontSize="md">
           Your address: {accounts && accounts.length > 0 ? accounts[0] : 'Unknown'}
+        </Text>
+
+        <Text color="white" fontSize="md">
+          Your ETH Balance: {balance}
         </Text>
 
         {accounts && accounts.length ? (
